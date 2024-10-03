@@ -1,0 +1,6 @@
+<h1 class="text-center">Component Lists</h1>
+<div class="row">
+    @for (item of cardLists; track $index) {
+        <app-card [cardInfo]="item" class="col-2"></app-card>
+    }
+</div>
