@@ -16,24 +16,16 @@ export const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'product-carousel',
-        component: ProductCarouselComponent
-    },
-    {
-        path: 'carousel',
-        component: CarouselComponent
-    },
-    {
-        path: 'top-nav',
-        component: TopNavBarComponent
-    },
-    {
         path: '',
         component: MainPageComponent,
         children: [
             {
                 path: 'carousel',
                 component: CarouselComponent
+            },
+            {
+                path: 'top-nav',
+                component: TopNavBarComponent
             },
             {
                 path: 'product-carousel',

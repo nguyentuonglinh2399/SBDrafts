@@ -18,6 +18,13 @@ export const componentList: Card[] = [
         cardText: "Main Carousel of the page",
         cardText2: "This will be under the top nav bar",
         redirect: 'carousel'
+    },
+    {
+        cardImg: "https://cdn.smartslider3.com/wp-content/uploads/2017/03/boxedproductcarousel-1.jpg",
+        cardTitle: "Product Carousel",
+        cardText: "Catalog View",
+        cardText2: "Common Element will repeat",
+        redirect: 'product-carousel'
     }
 ]
 
