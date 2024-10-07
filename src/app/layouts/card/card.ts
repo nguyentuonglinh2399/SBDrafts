@@ -3,4 +3,5 @@ export interface Card {
     cardTitle: string,
     cardText: string,
     cardText2?: string,
+    redirect?: string,
 }

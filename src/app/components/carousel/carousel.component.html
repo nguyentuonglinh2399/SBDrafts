@@ -5,14 +5,17 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div> -->
     <div class="carousel-inner">
-        @if (this.imageList != []) {
+        @if (this.imageList == []) {
             <div class="carousel-item active">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" class="d-block w-100" alt="...">
             </div>
         } @else {
-            @for(imageLink of this.imageList; track $index) {
+            <div class="carousel-item active">
+              <img [src]="imageList[0]" class="d-block w-100" alt="...">
+            </div>
+            @for(imageLink of this.imageList.slice(1); track $index) {
                 <div class="carousel-item">
-                    <img src="${imageLink}" class="d-block w-100" alt="...">
+                    <img [src]="imageLink" class="d-block w-100" alt="...">
                   </div>
             }
         }

@@ -16,8 +16,8 @@ export class CarouselComponent {
     "https://static1.colliderimages.com/wordpress/wp-content/uploads/2024/08/how-strong-is-spider-man-in-comics-movies-and-beyond.jpg"
   ]
 
-  constructor(private imageList: string[]) {
-    this.imageList= imageList;
+  constructor() {
+    console.log(this.imageList)
   }
 
 }

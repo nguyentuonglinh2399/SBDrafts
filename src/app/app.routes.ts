@@ -3,6 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MainPageComponent } from './layouts/main-page/main-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
+import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.component';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,10 @@ export const routes: Routes = [
         component: CarouselComponent
     },
     {
+        path: 'top-nav',
+        component: TopNavBarComponent
+    },
+    {
         path: '',
         component: MainPageComponent,
         children: [
@@ -33,7 +38,8 @@ export const routes: Routes = [
             {
                 path: 'product-carousel',
                 component: ProductCarouselComponent
-            }
+            },
+
         ]
     }
 ];
