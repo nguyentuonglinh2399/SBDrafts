@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
-import { Card } from '../card/card';
-import { componentList } from '../../../constants';
+import { ICard } from '../../../models/interfaces/card';
+import { componentList } from '../../../models/constants/testConstants';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 })
 export class MainPageComponent {
 
-  testCardList: Card[] = componentList
+  testCardList: ICard[] = componentList
 
   constructor() {
 

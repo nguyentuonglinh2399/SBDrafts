@@ -1,4 +1,4 @@
-export interface Card {
+export interface ICard {
     cardImg?: string,
     cardTitle: string,
     cardText: string,

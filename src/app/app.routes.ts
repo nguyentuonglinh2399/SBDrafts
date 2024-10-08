@@ -4,6 +4,7 @@ import { MainPageComponent } from './layouts/main-page/main-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
 import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.component';
+import { ProductGroupDisplayComponent } from './components/product-group-display/product-group-display.component';
 
 export const routes: Routes = [
     {
@@ -31,6 +32,10 @@ export const routes: Routes = [
                 path: 'product-carousel',
                 component: ProductCarouselComponent
             },
+            {
+                path: 'product-group-display',
+                component: ProductGroupDisplayComponent
+            }
 
         ]
     }
