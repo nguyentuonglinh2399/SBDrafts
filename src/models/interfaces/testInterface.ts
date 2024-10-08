@@ -6,3 +6,8 @@ export interface IProductMain {
     sales: boolean,
     review: string
 }
+
+export interface IProductCarousel {
+    productName: string,
+    productImg: string,
+}

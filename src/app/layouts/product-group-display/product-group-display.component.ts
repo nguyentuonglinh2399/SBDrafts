@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IProductMain } from '../../../models/interfaces/testInterface';
+import { productCards } from '../../../models/constants/testConstants';
 
 @Component({
   selector: 'app-product-group-display',
@@ -8,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './product-group-display.component.css'
 })
 export class ProductGroupDisplayComponent {
+
+  testProducts: IProductMain[] = productCards;
 
 }

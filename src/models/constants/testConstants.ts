@@ -59,12 +59,33 @@ export const testCardList2: ICard[] = [
 
 export const productCards: IProductMain[] = [
     {
-        productName: "8'x8' Pop Up Display Fabric Backdrop with Stand",
-        productImg: "https://stickersbanners.com/imgs/pop-up-display-set-up.gif",
-        price: "$455",
-        prevPrice: "$480",
-        sales: true,
-        review: "Cool"
+      productName: "8'x8' Pop Up Display Fabric Backdrop with Stand",
+      productImg: "https://stickersbanners.com/imgs/pop-up-display-set-up.gif",
+      price: "$455.00",
+      prevPrice: "$480.00",
+      sales: true,
+      review: "Cool"
+    },
+    {
+      productName: "10'x8' Pop Up Display Fabric Backdrop with Stand",
+      productImg: "https://stickersbanners.com/imgs/pop-up-display-set-up.gif",
+      price: "$549.00",
+      sales: false,
+      review: "Kinda Cool"
+    },
+    {
+      productName: "8'x8' Pop Up Display Fabric Backdrop with Stand and Red Carpet",
+      productImg: "https://stickersbanners.com/imgs/pop-up-display-set-up.gif",
+      price: "$489.00",
+      sales: false,
+      review: "Very Cool"
+    },
+    {
+      productName: "10'x8' Pop Up Display Fabric Backdrop with Stand and Red Carpet",
+      productImg: "https://stickersbanners.com/imgs/pop-up-display-set-up.gif",
+      price: "$599.00",
+      sales: false,
+      review: "Super Cool"
     }
 
 ]
