@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IProductMain } from '../../../models/interfaces/testInterface';
-import { productCards } from '../../../models/constants/testConstants';
+import { IProductMain } from '../../../../models/interfaces/testInterface';
+import { productCards } from '../../../../models/constants/testConstants';
+
 
 @Component({
   selector: 'app-product-group-display',

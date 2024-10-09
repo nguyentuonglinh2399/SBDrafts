@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICard } from '../../../models/interfaces/card';
+import { ICard } from '../../../../models/interfaces/card';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -24,7 +24,6 @@ export class CardComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    console.log(this.cardInfo)
   }
 
 }
