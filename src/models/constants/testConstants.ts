@@ -1,5 +1,5 @@
 import { ICard } from "../interfaces/card";
-import { IProductMain } from "../interfaces/testInterface";
+import { IProductCarousel, IProductMain } from "../interfaces/testInterface";
 
 export const componentList: ICard[] = [
     {
@@ -87,5 +87,67 @@ export const productCards: IProductMain[] = [
       sales: false,
       review: "Super Cool"
     }
+  ]
+  export const productCarouselList: IProductCarousel[] = [
+    {
+      productImg: "https://stickersbanners.com/imgs/backdrop-new.png",
+      productName: "Vinyl Backdrops"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/8X8_ppl_750x607.jpg",
+      productName: "Fabric Backdrops"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/pop-up-display-set-up.gif",
+      productName: "Pop up Display Fabric"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/vinyl-banners1.jpg",
+      productName: "Custom Vinyl Banners"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/bumper-stickers2.png",
+      productName: "Bumper Stickers"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/retractable-banners.png",
+      productName: "Pop Up Retractable Banners"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/x-banners1.png",
+      productName: "X-Banners"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/mesh-small3.jpg",
+      productName: "Mesh Banners"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/window6.jpg",
+      productName: "Adhesive Banners"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/Company12.jpg",
+      productName: "See Through Window Decals"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/bumper-stickers-4.png",
+      productName: "Kiss Cut Stickers"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/circle-sticker-logo1.png",
+      productName: "Round/Circle Stickers"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/oval-sticker2.png",
+      productName: "Oval Stickers"
+    },
+    {
+      productImg: "https://stickersbanners.com/imgs/stickersbanners-printed-in-usa.png",
+      productName: "Printed in the USA"
+    },
+    {
+      productImg: "https://stickersbanners.com/images/lpg-icon.gif",
+      productName: "Lowest Price"
+    },
 
-]
+  ]
