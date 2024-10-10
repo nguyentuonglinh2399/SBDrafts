@@ -36,7 +36,14 @@ export const componentList: ICard[] = [
       cardText: "How the products will be grouped",
       cardText2: "Very nice",
       redirect: 'product-group-display'
-  }
+    },
+    {
+      cardImg: "https://cdn.prod.website-files.com/605826c62e8de87de744596e/66aa22504cae209048d2b73d_65fa5951d0ef8a8f7bf33d3b_Creative%2520Ways%2520to%2520Display%2520eCommerce%2520Products%25204.webp",
+      cardTitle: "Product Group Display",
+      cardText: "How the products will be grouped",
+      cardText2: "Very nice",
+      redirect: 'product-group-display'
+    }
 ]
 
 export const testCardList2: ICard[] = [
