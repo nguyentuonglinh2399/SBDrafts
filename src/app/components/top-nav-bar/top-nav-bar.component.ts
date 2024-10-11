@@ -6,7 +6,7 @@ import { SBLogo, SBNumber, SBEmail } from '../../../constants';
   standalone: true,
   imports: [],
   templateUrl: './top-nav-bar.component.html',
-  styleUrl: './top-nav-bar.component.css'
+  styleUrl: './top-nav-bar.component.scss'
 })
 export class TopNavBarComponent {
 

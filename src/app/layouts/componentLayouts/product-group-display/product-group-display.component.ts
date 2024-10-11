@@ -8,7 +8,7 @@ import { productCards } from '../../../../models/constants/testConstants';
   standalone: true,
   imports: [],
   templateUrl: './product-group-display.component.html',
-  styleUrl: './product-group-display.component.css'
+  styleUrl: './product-group-display.component.scss'
 })
 export class ProductGroupDisplayComponent {
 
