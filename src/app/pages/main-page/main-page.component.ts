@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CardComponent } from '../../componentLayouts/card/card.component';
-import { ICard } from '../../../../models/interfaces/card';
-import { componentList } from '../../../../models/constants/testConstants';
+import { CardComponent } from '../../layouts/componentLayouts/card/card.component';
+import { ICard } from '../../../models/interfaces/card';
+import { componentList } from '../../../models/constants/testConstants';
 import { RouterModule } from '@angular/router';
 
 @Component({
