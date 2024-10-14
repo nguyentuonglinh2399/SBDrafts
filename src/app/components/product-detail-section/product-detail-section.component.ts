@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductDetail } from '../../../models/classes/ProductDetail';
+import { testProduct } from '../../testVariables';
 
 @Component({
   selector: 'app-product-detail-section',
@@ -11,7 +12,7 @@ import { ProductDetail } from '../../../models/classes/ProductDetail';
 })
 export class ProductDetailSectionComponent implements OnInit{
 
-  @Input() productDetail: ProductDetail;
+  @Input() productDetail: ProductDetail = testProduct;
   
   currentPic: string;
   currentQuantity = signal(1);

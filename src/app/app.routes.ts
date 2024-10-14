@@ -3,11 +3,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
-import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.component';
 import { ProductGroupDisplayComponent } from './layouts/componentLayouts/product-group-display/product-group-display.component';
-import { ProductCardCarouselComponent } from './layouts/componentLayouts/product-card-carousel/product-card-carousel.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { FeatureComponent } from './components/feature/feature.component';
+import { ProductDetailSectionComponent } from './components/product-detail-section/product-detail-section.component';
+import { ProductSpecificationComponent } from './components/product-specification/product-specification.component';
 
 
 export const routes: Routes = [
@@ -22,7 +28,13 @@ export const routes: Routes = [
     },
     {
         path: 'product-detail',
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        children: [
+            {
+                path: 'product-spec',
+                component: ProductSpecificationComponent
+            }
+        ]
     },
     {
         path: '',
@@ -33,18 +45,41 @@ export const routes: Routes = [
                 component: CarouselComponent
             },
             {
-                path: 'top-nav',
-                component: TopNavBarComponent
-            },
-            {
                 path: 'product-carousel',
                 component: ProductCarouselComponent
             },
             {
                 path: 'product-group-display',
                 component: ProductGroupDisplayComponent
+            },
+            {
+                path: 'header',
+                component: HeaderComponent
+            },
+            {
+                path: 'footer',
+                component: FooterComponent
+            },
+            {
+                path: 'navbar',
+                component: NavbarComponent
+            },
+            {
+                path: 'jumbotron',
+                component: JumbotronComponent
+            },
+            {
+                path: 'landing-product-card',
+                component: ProductCardComponent
+            },
+            {
+                path: 'feature',
+                component: FeatureComponent
+            },
+            {
+                path: 'product-detail-section',
+                component: ProductDetailSectionComponent
             }
-
         ]
     }
 ];

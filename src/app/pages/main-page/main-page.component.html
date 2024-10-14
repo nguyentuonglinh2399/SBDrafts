@@ -1,8 +1,16 @@
-<h1 class="text-center">Component Lists</h1>
-<div class="row mt-2">
-    @for (item of testCardList; track $index) {
-        <app-card [cardInfo]="item" class="col-3"></app-card>
-    }
+<div class="container">
+    <h3 class="text-center mt-4">Pages Lists</h3>
+    <div class="row mx-2">
+        @for (item of testPageList; track $index) {
+            <app-card [cardInfo]="item" class="col-3"></app-card>
+        }
+    </div>
+    <h3 class="text-center mt-4">Component Lists</h3>
+    <div class="row mx-2">
+        @for (item of testCardList; track $index) {
+            <app-card [cardInfo]="item" class="col-3"></app-card>
+        }
+    </div>
 </div>
 <div class="container mt-4">
     <router-outlet></router-outlet>

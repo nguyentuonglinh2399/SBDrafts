@@ -11,3 +11,18 @@ export interface IProductCarousel {
     productName: string,
     productImg: string,
 }
+
+export interface IRec {
+    productName: string,
+    productImg: string,
+    productType?: string,
+    price: number
+}
+
+export interface IProductSpec {
+    display: string,
+    processor: string,
+    camera: string,
+    memory: string,
+    graphics: string
+}

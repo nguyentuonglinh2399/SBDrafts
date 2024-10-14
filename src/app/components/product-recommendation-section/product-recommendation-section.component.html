@@ -1,0 +1,24 @@
+<div class="px-0 border rounded-2 shadow-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Similar items</h5>
+        @for (item of productRecDetails; track $index) {
+            <div class="d-flex mb-3">
+                <a href="#" class="me-3">
+                  <img [src]="item.productImg" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                </a>
+                <div class="info">
+                  <a href="#" class="nav-link mb-1">
+                    {{ item.productName }}
+                    @if (item.productType) {
+                    <br />
+                    {{ item.productType }}
+                    } 
+                  </a>
+                  <strong class="text-dark"> ${{item.price.toFixed(2)}}</strong>
+                </div>
+              </div>
+        }
+      </div>
+    </div>
+  </div>

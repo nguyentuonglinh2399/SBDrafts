@@ -1,50 +1,8 @@
+import { MainPageComponent } from "../../app/pages/main-page/main-page.component";
 import { ICard } from "../interfaces/card";
-import { IProductCarousel, IProductMain } from "../interfaces/testInterface";
+import { IProductCarousel, IProductMain, IProductSpec, IRec } from "../interfaces/testInterface";
 
-export const componentList: ICard[] = [
-    {
-        cardImg: "https://assets.justinmind.com/wp-content/uploads/2021/02/top-navigation-bar-mobile-apps.png",
-        cardTitle: "Top Navbar",
-        cardText: "Here's the top navbar",
-        cardText2: "This is on top",
-        redirect: 'top-nav'
-    },
-    {
-        cardImg: "https://thewebsitearchitect.com/wp-content/uploads/2020/12/are-sliders-bad-or-good-for-user-experience.png",
-        cardTitle: "Carousel",
-        cardText: "Main Carousel of the page",
-        cardText2: "This will be under the top nav bar",
-        redirect: 'carousel'
-    },
-    {
-        cardImg: "https://cdn.smartslider3.com/wp-content/uploads/2017/03/boxedproductcarousel-1.jpg",
-        cardTitle: "Product Carousel",
-        cardText: "Catalog View",
-        cardText2: "Common Element will repeat",
-        redirect: 'product-carousel'
-    },
-    {
-        cardImg: "https://cdn.prod.website-files.com/605826c62e8de87de744596e/66aa22504cae209048d2b73d_65fa5951d0ef8a8f7bf33d3b_Creative%2520Ways%2520to%2520Display%2520eCommerce%2520Products%25204.webp",
-        cardTitle: "Product Group Display",
-        cardText: "How the products will be grouped",
-        cardText2: "Very nice",
-        redirect: 'product-group-display'
-    },
-    {
-      cardImg: "https://cdn.prod.website-files.com/605826c62e8de87de744596e/66aa22504cae209048d2b73d_65fa5951d0ef8a8f7bf33d3b_Creative%2520Ways%2520to%2520Display%2520eCommerce%2520Products%25204.webp",
-      cardTitle: "Landing Page",
-      cardText: "How the products will be grouped",
-      cardText2: "Very nice",
-      redirect: 'landing-page'
-    },
-    {
-      cardImg: "https://cdn.prod.website-files.com/605826c62e8de87de744596e/66aa22504cae209048d2b73d_65fa5951d0ef8a8f7bf33d3b_Creative%2520Ways%2520to%2520Display%2520eCommerce%2520Products%25204.webp",
-      cardTitle: "Product Detail",
-      cardText: "How the products will be viewed in detail",
-      cardText2: "Very nice",
-      redirect: 'product-detail'
-    }
-]
+
 
 export const testCardList2: ICard[] = [
       {
@@ -165,3 +123,37 @@ export const productCards: IProductMain[] = [
     },
 
   ]
+
+export const productRec: IRec[] = [
+  {
+    productName: "Rucksack Backpack Large Line Mounts",
+    productImg: "https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/8.webp",
+    productType: "Line Mounts",
+    price: 38.90
+  },
+  {
+    productName: "Summer New Men's Denims",
+    productImg: "https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/9.webp",
+    productType: "Jean Shorts",
+    price: 29.50
+  },
+  {
+    productName: "T-shirts with multiple colors, for men and lady",
+    productImg: "https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/10.webp",
+    price: 120.00
+  },
+  {
+    productName: "Blazer Suit Dress Jacket for Men, Blue color",
+    productImg: "https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/11.webp",
+    price: 339.90
+  }
+]
+
+export const productSpec: IProductSpec = 
+  {
+    display: "13.3-inch LED-backlit display with IPS",
+    processor: "2.3GHz dual-core Intel Core i5",
+    camera: "720p FaceTime HD camera",
+    memory: "8 GB RAM or 16 GB RAM",
+    graphics: "Intel Iris Plus Graphics 640"
+  }
