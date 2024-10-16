@@ -58,6 +58,12 @@ export const componentList: ICard[] = [
       cardText: "Detailed view of each product",
       redirect: 'product-detail-section'
     },
+    {
+      cardImg: "",
+      cardTitle: "API Testing",
+      cardText: "To test API Server for sending products detail",
+      redirect: 'test-api'
+    }
     
 ]
 

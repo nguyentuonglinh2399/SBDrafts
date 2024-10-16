@@ -14,6 +14,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { FeatureComponent } from './components/feature/feature.component';
 import { ProductDetailSectionComponent } from './components/product-detail-section/product-detail-section.component';
 import { ProductSpecificationComponent } from './components/product-specification/product-specification.component';
+import { TestAPIComponent } from './pages/test-api/test-api.component';
 
 
 export const routes: Routes = [
@@ -35,6 +36,14 @@ export const routes: Routes = [
                 component: ProductSpecificationComponent
             }
         ]
+    },
+    {
+        path: 'test-api',
+        component: TestAPIComponent
+    },
+    {
+        path: "products/:productId",
+        component: TestAPIComponent
     },
     {
         path: '',

@@ -26,3 +26,15 @@ export interface IProductSpec {
     memory: string,
     graphics: string
 }
+
+export interface IProductAPI {
+    id: number,
+    sku: string,
+    name: string,
+    material: string
+}
+
+export interface ICheckAPI {
+    isOnline: boolean,
+    port: number,
+}
