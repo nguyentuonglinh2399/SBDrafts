@@ -34,6 +34,15 @@ export interface IProductAPI {
     material: string
 }
 
+export interface IMainProduct {
+    name: string,
+    sku: string,
+    price: number,
+    weight: number,
+    maxBothDimensions?: number,
+    finishingOptions: string[]
+}
+
 export interface ICheckAPI {
     isOnline: boolean,
     port: number,

@@ -49,7 +49,7 @@
             </p>
   
             <div class="row">
-              <dt class="col-3">Type:</dt>
+              <dt class="col-3 text-danger">Type:</dt>
               <dd class="col-9">{{ productDetail.type }}</dd>
   
               <dt class="col-3">Color</dt>
@@ -65,14 +65,57 @@
             <hr />
   
             <div class="row mb-4">
-              <div class="col-md-4 col-6">
+              <!-- <div class="col-md-4 col-6">
                 <label class="mb-2">Size</label>
                 <select class="form-select border border-secondary" style="height: 35px;">
                   <option>Small</option>
                   <option>Medium</option>
                   <option>Large</option>
                 </select>
-              </div>
+              </div> -->
+              <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                <div class="container-fluid">
+                  <div formGroupName="dimensionsGroup" class="row my-2">
+                    <div class="col">
+                      <label for="width">Width:</label>
+                      <input id="width" formControlName="width"/>
+                    </div>
+                    <div class="col">
+                      <label for="height">Height:</label>
+                      <input id="height" formControlName="height"/>
+                    </div>
+                    @if (!this.validDimensions) {
+                      <p class="text-danger">Dimensions are not valid. At least 1 side have to be smaller or equal to 8ft.</p>
+                    }
+                    <div class="row"></div>
+                  </div>
+                  <div class="row my-2">
+                    <div class="col">
+                      <label for="material">Material Type:</label>
+                      <select class="form-select border border-secondary" id="material" formControlName="material" style="height: 35px;">
+                        <option value="" disabled>Select an option for material</option>
+                        @for (item of this.materialOptions; track $index) {
+                          <option [value]="item">{{ item }}</option>
+                        }
+                      </select>
+                    </div>
+                    <div class="col">
+                      <label for="finishingOption">Finishing Options:</label>
+                      <select class="form-select border border-secondary" id="finishingOption" formControlName="finishingOption" style="height: 35px;">
+                        <option value="" disabled>Select an option for finishing</option>
+                        @for (item of this.finishingOptions; track $index) {
+                          <option [value]="item">{{ item }}</option>
+                        }
+                      </select>
+                    </div>
+                  </div>
+                  <label for="specialInstructions">Special Instructions</label>
+                  <input type="text" formControlName="specialInstructions" id="specialInstructions"/>
+                  <label for="specialInstructions">Quantity</label>
+                  <input type="number" formControlName="quantity" id="quantity"/>
+                  <button type="submit" class="btn btn-primary shadow-0">Add to Cart</button>
+                </div>
+              </form>
               <!-- col.// -->
               <div class="col-md-4 col-6 mb-3">
                 <label class="mb-2 d-block">Quantity</label>
@@ -80,7 +123,8 @@
                   <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark" (click)="adjustQuantity(false)" >
                     <i class="fas fa-minus"></i>
                   </button>
-                  <input type="number"  class="form-control text-center border border-secondary" [placeholder]="currentQuantity()" aria-label="Example text with button addon" aria-describedby="button-addon1" [value]="currentQuantity()"/>
+                  <!-- <input type="number"  class="form-control text-center border border-secondary" [placeholder]="currentQuantity()" [(ngModel)]="quantity" name="quantity" aria-label="Example text with button addon" aria-describedby="button-addon1" [value]="currentQuantity()"/> -->
+                  <input type="text"  class="form-control text-center border border-secondary" [(ngModel)]="quantity" name="quantity" (ngModelChange)="updateValue($event)" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
                   <!-- (input)="updateCurrentQuatity2($event.target.value) -->
                   <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark" (click)="adjustQuantity(true)">
                     <i class="fas fa-plus"></i>

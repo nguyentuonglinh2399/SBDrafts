@@ -1,7 +1,9 @@
 <div class="container mt-3">
-    @if (this.testResponse.isOnline) {
-        <p>StickersBanners' API Server is <span class="text-success">Online</span> at port {{ this.testResponse.port }}</p>
-        {{ this.testProductResponse.name }}
+    @if (this.testResponse$.isOnline) {
+        <p>StickersBanners' API Server is <span class="text-success">Online</span> at port {{ this.testResponse$.port }}</p>
+        {{ this.testProductResponse$.name }}
+        {{ this.testMainProduct$.name }}
+        <p>{{ this.testMainProduct$.name }}</p>
     } @else {
         <p>StickersBanners' API Server is currently <span class="text-danger">Offline</span></p>
     }

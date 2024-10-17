@@ -3,6 +3,7 @@ export class SBProductDetail {
     name: string;
     ratings: string;
     price: number;
+    maxBothDimensions?: number;
     width?: number;
     height?: number;
     description: string;
@@ -19,5 +20,14 @@ export class SBProductDetail {
         this.price = 0;
         this.description = "";
         this.material = "";
+    }
+
+    checkDimensions(): boolean {
+        if (this.maxBothDimensions) {
+            if (this.width > this.maxBothDimensions && this.height > this.maxBothDimensions) {
+                return false;
+            }
+        }
+        return true;
     }
 }

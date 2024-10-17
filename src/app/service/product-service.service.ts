@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { liveAPILink, testAPILink } from '../../constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IProductAPI } from '../../models/interfaces/testInterface';
+import { IMainProduct, IProductAPI } from '../../models/interfaces/testInterface';
 
 
 @Injectable({
@@ -28,6 +28,10 @@ export class ProductServiceService {
 
   getProductById(productId: number): Observable<IProductAPI> {
     return this.http.get<IProductAPI>(`${this.apiURL}api/products/${productId}`)
+  }
+
+  getMainProduct(): Observable<IMainProduct> {
+    return this.http.get<IMainProduct>(`${this.apiURL}api/mockproduct`)
   }
 
 }
