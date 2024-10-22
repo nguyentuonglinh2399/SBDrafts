@@ -74,7 +74,7 @@
               </div> -->
               <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
                 <div class="container-fluid">
-                  @if (this.productInfo?.dimensions.enable == true) {
+                  @if (this.productInfo.dimensions.enable == true) {
                     <div formGroupName="dimensionsGroup" class="row my-2">
                       <div class="col">
                         <label for="width">Width:</label>
