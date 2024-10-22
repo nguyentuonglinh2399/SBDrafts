@@ -47,3 +47,35 @@ export interface ICheckAPI {
     isOnline: boolean,
     port: number,
 }
+
+export interface IAPIResponseModel {
+    status: string,
+    message: string,
+    findProduct?: IProductAPI2
+}
+
+export interface IProductAPI2 {
+    name: string,
+    id: number,
+    basePrice: number,
+    weight?: number,
+    type: string,
+    dimensions: IDimensions,
+    materialType: string[] | string,
+    finishingOptions: string[],
+    description: string,
+    thumbnails: string[] | string,
+    files: string
+}
+
+export interface IDimensions {
+    enable: boolean,
+    isSlit?: boolean,
+    maxBothDimensions?: number,
+    maxDimensionAllowed?: number,
+    starter?: number
+    finalDimensions?: {
+        width: number,
+        height: number
+    }
+}

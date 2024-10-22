@@ -43,10 +43,10 @@ export const routes: Routes = [
     },
     {
         path: "products/:productId",
-        component: TestAPIComponent
+        component: ProductDetailSectionComponent
     },
     {
-        path: '',
+        path: 'main',
         component: MainPageComponent,
         children: [
             {

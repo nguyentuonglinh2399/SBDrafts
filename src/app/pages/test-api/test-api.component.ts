@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ProductServiceService } from '../../service/product-service.service';
-import { ICheckAPI, IMainProduct, IProductAPI } from '../../../models/interfaces/testInterface';
-import { ActivatedRoute } from '@angular/router';
+import { IAPIResponseModel, ICheckAPI, IMainProduct, IProductAPI, IProductAPI2 } from '../../../models/interfaces/testInterface';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-api',
@@ -17,19 +17,23 @@ export class TestAPIComponent implements OnInit {
     isOnline: false,
     port: 0
   };
-  testProductResponse$: IProductAPI = {
-    id: 0,
+  testProductResponse$: IProductAPI2;
+  testMainProduct$: IMainProduct = {
     name: "",
     sku: "",
-    material: ""
+    price: 0,
+    weight: 0,
+    finishingOptions: []
   };
-  testMainProduct$: IMainProduct;
 
   productId: any = 0;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     //extract parameter from URI
     this.productId = parseInt(this.activatedRoute.snapshot.paramMap.get('productId'));
+    if (isNaN(this.productId)) {
+      this.router.navigate(["/main"])
+    }
   }
 
   ngOnInit(): void {
@@ -46,7 +50,7 @@ export class TestAPIComponent implements OnInit {
   }
 
   getProductById(productId: any) {
-    this.testProductService.getProductById(productId).subscribe((res: IProductAPI) => {
+    this.testProductService.getProductById(productId).subscribe((res: IProductAPI2) => {
       console.log(res);
       this.testProductResponse$ = res;
     })

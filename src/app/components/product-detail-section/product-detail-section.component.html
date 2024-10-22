@@ -21,8 +21,8 @@
         <main class="col-lg-6">
           <div class="ps-lg-3">
             <h4 class="title text-dark">
-              {{ productDetail.name }} <br />
-              {{ productDetail.category }}
+              {{ this.productInfo.name }} <br />
+              {{ this.productInfo.type }}
             </h4>
             <div class="d-flex flex-row my-3">
               <div class="text-warning mb-1 me-2">
@@ -40,12 +40,11 @@
             </div>
   
             <div class="mb-3">
-              <span class="h5">${{ productDetail.price }}</span>
-              <span class="text-muted">/per box</span>
+              <span class="h4 text-danger">${{ this.productInfo.basePrice }}</span>
             </div>
   
             <p>
-              {{ productDetail.description }}
+              {{ this.productInfo.description }}
             </p>
   
             <div class="row">
@@ -75,44 +74,67 @@
               </div> -->
               <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
                 <div class="container-fluid">
-                  <div formGroupName="dimensionsGroup" class="row my-2">
-                    <div class="col">
-                      <label for="width">Width:</label>
-                      <input id="width" formControlName="width"/>
+                  @if (this.productInfo?.dimensions.enable == true) {
+                    <div formGroupName="dimensionsGroup" class="row my-2">
+                      <div class="col">
+                        <label for="width">Width:</label>
+                        <input id="width" formControlName="width" [placeholder]="this.productInfo.dimensions.starter"/>
+                      </div>
+                      <div class="col">
+                        <label for="height">Height:</label>
+                        <input id="height" formControlName="height"/>
+                      </div>
+                      @if (!this.validDimensions) {
+                        <p class="text-danger">Dimensions are not valid. At least 1 side have to be smaller or equal to 8ft.</p>
+                      }
+                      <div class="row"></div>
                     </div>
+                  } @else {
                     <div class="col">
-                      <label for="height">Height:</label>
-                      <input id="height" formControlName="height"/>
+                      Final Dimensions {{ this.productInfo.dimensions.finalDimensions.width }}
                     </div>
-                    @if (!this.validDimensions) {
-                      <p class="text-danger">Dimensions are not valid. At least 1 side have to be smaller or equal to 8ft.</p>
+                  }
+                  <div class="row my-2">
+                    @if (this.productInfo.materialType) {
+                      <div class="col">
+                        <label for="material">Material Type:</label>
+                        <select class="form-select border border-secondary" id="material" formControlName="material" style="height: 35px;">
+                          <option value="" disabled>Select an option for material</option>
+                          @for (item of this.materialOptions; track $index) {
+                            <option [value]="item">{{ item }}</option>
+                          }
+                        </select>
+                      </div>
                     }
-                    <div class="row"></div>
+                    <div class="col">
+                      @if (this.productInfo.finishingOptions) {
+                        <label for="finishingOption">Finishing Options:</label>
+                        <select class="form-select border border-secondary" id="finishingOption" formControlName="finishingOption" style="height: 35px;">
+                          <option value="" disabled>Select an option for finishing</option>
+                          @for (item of this.productInfo.finishingOptions; track $index) {
+                            <option [value]="item">{{ item }}</option>
+                          }
+                        </select>
+                      } @else if (this.productInfo.finishingOptions.length == 1) {
+                        <label for="finishingOption">Finishing Options:</label>
+                        <p>{{this.productInfo.finishingOptions[0]}}</p>
+                      }
+                      @if (this.productInfo.dimensions.isSlit) {
+                        <input type="checkbox" id="isSlit" formControlName="isSlit"/>
+                        Add Slit on top pole pocket
+                      }
+                    </div>
                   </div>
                   <div class="row my-2">
                     <div class="col">
-                      <label for="material">Material Type:</label>
-                      <select class="form-select border border-secondary" id="material" formControlName="material" style="height: 35px;">
-                        <option value="" disabled>Select an option for material</option>
-                        @for (item of this.materialOptions; track $index) {
-                          <option [value]="item">{{ item }}</option>
-                        }
-                      </select>
+                      <label for="specialInstructions">Special Instructions</label>
+                      <input type="text" formControlName="specialInstructions" id="specialInstructions"/>
                     </div>
                     <div class="col">
-                      <label for="finishingOption">Finishing Options:</label>
-                      <select class="form-select border border-secondary" id="finishingOption" formControlName="finishingOption" style="height: 35px;">
-                        <option value="" disabled>Select an option for finishing</option>
-                        @for (item of this.finishingOptions; track $index) {
-                          <option [value]="item">{{ item }}</option>
-                        }
-                      </select>
+                      <label for="specialInstructions">Quantity</label>
+                      <input type="number" formControlName="quantity" id="quantity"/>
                     </div>
                   </div>
-                  <label for="specialInstructions">Special Instructions</label>
-                  <input type="text" formControlName="specialInstructions" id="specialInstructions"/>
-                  <label for="specialInstructions">Quantity</label>
-                  <input type="number" formControlName="quantity" id="quantity"/>
                   <button type="submit" class="btn btn-primary shadow-0">Add to Cart</button>
                 </div>
               </form>

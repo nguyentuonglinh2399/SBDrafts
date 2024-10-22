@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { liveAPILink, testAPILink } from '../../constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IMainProduct, IProductAPI } from '../../models/interfaces/testInterface';
+import { IAPIResponseModel, IMainProduct, IProductAPI, IProductAPI2 } from '../../models/interfaces/testInterface';
 
 
 @Injectable({
@@ -26,8 +26,8 @@ export class ProductServiceService {
     return this.http.get<any>(`${this.apiURL}`)
   }
 
-  getProductById(productId: number): Observable<IProductAPI> {
-    return this.http.get<IProductAPI>(`${this.apiURL}api/products/${productId}`)
+  getProductById(productId: number): Observable<IProductAPI2> {
+    return this.http.get<IProductAPI2>(`${this.apiURL}api/products/${productId}`)
   }
 
   getMainProduct(): Observable<IMainProduct> {
