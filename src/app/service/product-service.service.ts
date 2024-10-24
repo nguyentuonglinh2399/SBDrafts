@@ -8,7 +8,7 @@ import { IAPIResponseModel, IMainProduct, IProductAPI, IProductAPI2 } from '../.
 @Injectable({
   providedIn: 'root'
 })
-export class ProductServiceService {
+export class ProductService {
   testLocal = true;
   apiURL: string = "";
 

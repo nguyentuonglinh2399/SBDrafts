@@ -18,3 +18,27 @@ export function checkDimensions(group: AbstractControl): ValidationErrors | null
         return null;
     }
 }
+
+export function checkDimensions2(control: any, maxDimensions: number) {
+    const width  = this.productForm?.get('width')?.value;
+    const height = this.productForm?.get('height')?.value;
+
+    if (width > maxDimensions && height > maxDimensions) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+export function checkDimensions3(maxDimension: number) {
+    return (control: any) => {
+        const width  = this.productForm?.get('width')?.value;
+        const height = this.productForm?.get('height')?.value;
+
+        if (width > maxDimension && height > maxDimension) {
+            return { invalid: true };
+        } else {
+            return null;
+    }
+    }
+}

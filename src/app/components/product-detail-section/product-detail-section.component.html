@@ -10,7 +10,7 @@
           </div>
           <div class="d-flex justify-content-center mb-3">
             @for (item of productDetail.thumbnails; track $index) {
-                <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" [href]="item" class="item-thumb" (click)="handleClick(item, $event)" >
+                <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" [href]="item" class="item-thumb" >
                     <img width="60" height="60" class="rounded-2" [src]="item"/>
                 </a>
             }
@@ -64,18 +64,11 @@
             <hr />
   
             <div class="row mb-4">
-              <!-- <div class="col-md-4 col-6">
-                <label class="mb-2">Size</label>
-                <select class="form-select border border-secondary" style="height: 35px;">
-                  <option>Small</option>
-                  <option>Medium</option>
-                  <option>Large</option>
-                </select>
-              </div> -->
+
               <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
                 <div class="container-fluid">
                   @if (this.productInfo.dimensions.enable == true) {
-                    <div formGroupName="dimensionsGroup" class="row my-2">
+                    <div class="row my-2">
                       <div class="col">
                         <label for="width">Width:</label>
                         <input id="width" formControlName="width" [placeholder]="this.productInfo.dimensions.starter"/>
@@ -84,44 +77,48 @@
                         <label for="height">Height:</label>
                         <input id="height" formControlName="height"/>
                       </div>
-                      @if (!this.validDimensions) {
-                        <p class="text-danger">Dimensions are not valid. At least 1 side have to be smaller or equal to 8ft.</p>
-                      }
-                      <div class="row"></div>
                     </div>
-                  } @else {
-                    <div class="col">
-                      Final Dimensions {{ this.productInfo.dimensions.finalDimensions.width }}
+                  } @else if (this.productInfo.hasFinalDimensions()){
+                    <div class="row">
+                      <div class="col">
+                        Final Dimensions {{ this.productInfo.getFinalDimensions() }}
+                      </div>
                     </div>
                   }
                   <div class="row my-2">
-                    @if (this.productInfo.materialType) {
+                    @if (this.productInfo.checkMaterial() !== null) {
                       <div class="col">
                         <label for="material">Material Type:</label>
-                        <select class="form-select border border-secondary" id="material" formControlName="material" style="height: 35px;">
-                          <option value="" disabled>Select an option for material</option>
-                          @for (item of this.materialOptions; track $index) {
-                            <option [value]="item">{{ item }}</option>
-                          }
-                        </select>
+                        @if (this.productInfo.checkMaterial() == true) {
+                          <select class="form-select border border-secondary" id="material" formControlName="material" style="height: 35px;">
+                            <option value="" disabled>Select an option for material</option>
+                            @for (item of this.productInfo.materialOptions; track $index) {
+                              <option [value]="item">{{ item }}</option>
+                            }
+                          </select>
+                        } @else {
+                          <p>{{this.productInfo.checkMaterial()}}</p>
+                        }
                       </div>
                     }
                     <div class="col">
                       @if (this.productInfo.finishingOptions) {
-                        <label for="finishingOption">Finishing Options:</label>
-                        <select class="form-select border border-secondary" id="finishingOption" formControlName="finishingOption" style="height: 35px;">
-                          <option value="" disabled>Select an option for finishing</option>
-                          @for (item of this.productInfo.finishingOptions; track $index) {
-                            <option [value]="item">{{ item }}</option>
-                          }
-                        </select>
-                      } @else if (this.productInfo.finishingOptions.length == 1) {
-                        <label for="finishingOption">Finishing Options:</label>
-                        <p>{{this.productInfo.finishingOptions[0]}}</p>
-                      }
-                      @if (this.productInfo.dimensions.isSlit) {
-                        <input type="checkbox" id="isSlit" formControlName="isSlit"/>
-                        Add Slit on top pole pocket
+                        @if (this.productInfo.finishingOptions.length > 1) {
+                          <label for="finishingOptions">Finishing Options:</label>
+                          <select class="form-select border border-secondary" id="finishingOptions" formControlName="finishingOptions" style="height: 35px;">
+                            <option value="" disabled>Select an option for finishing</option>
+                            @for (item of this.productInfo.finishingOptions; track $index) {
+                              <option [value]="item">{{ item }}</option>
+                            }
+                          </select>
+                        } @else if (this.productInfo.finishingOptions.length == 1) {
+                          <label for="finishingOption">Finishing Options:</label>
+                          <p>{{this.productInfo.finishingOptions[0]}}</p>
+                        }
+                        @if (this.productInfo.dimensions.isSlit) {
+                          <input type="checkbox" id="isSlit" formControlName="isSlit"/>
+                          Add Slit on top pole pocket
+                        }
                       }
                     </div>
                   </div>
@@ -130,34 +127,34 @@
                       <label for="specialInstructions">Special Instructions</label>
                       <input type="text" formControlName="specialInstructions" id="specialInstructions"/>
                     </div>
-                    <div class="col">
+                    <div class="col my-2">
                       <label for="specialInstructions">Quantity</label>
                       <input type="number" formControlName="quantity" id="quantity"/>
                     </div>
                   </div>
+                  </div>
                   <button type="submit" class="btn btn-primary shadow-0">Add to Cart</button>
-                </div>
               </form>
               <!-- col.// -->
               <div class="col-md-4 col-6 mb-3">
-                <label class="mb-2 d-block">Quantity</label>
+                <label class="mb-2">Quantity</label>
                 <div class="input-group mb-1" style="width: 170px;">
-                  <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark" (click)="adjustQuantity(false)" >
+                  <!-- <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark" (click)="adjustQuantity(false)" >
                     <i class="fas fa-minus"></i>
-                  </button>
+                  </button> -->
                   <!-- <input type="number"  class="form-control text-center border border-secondary" [placeholder]="currentQuantity()" [(ngModel)]="quantity" name="quantity" aria-label="Example text with button addon" aria-describedby="button-addon1" [value]="currentQuantity()"/> -->
-                  <input type="text"  class="form-control text-center border border-secondary" [(ngModel)]="quantity" name="quantity" (ngModelChange)="updateValue($event)" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+                  <!-- <input type="text"  class="form-control text-center border border-secondary" [(ngModel)]="quantity" name="quantity" (ngModelChange)="updateValue($event)" aria-label="Example text with button addon" aria-describedby="button-addon1"/> -->
                   <!-- (input)="updateCurrentQuatity2($event.target.value) -->
-                  <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark" (click)="adjustQuantity(true)">
+                  <!-- <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark" (click)="adjustQuantity(true)">
                     <i class="fas fa-plus"></i>
-                  </button>
+                  </button> -->
                 </div>
-                @if (!this.validQuantity()){
+                @if (!this.validQuantity){
                   <p class="position-absolute">Can't do that dumbass..</p>
                 }
               </div>
             </div>
-            <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
+            <a class="btn btn-warning shadow-0" (click)="onSubmit()"> Buy now </a>
             <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
             <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Save </a>
           </div>

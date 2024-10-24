@@ -61,8 +61,8 @@ export interface IProductAPI2 {
     weight?: number,
     type: string,
     dimensions: IDimensions,
-    materialType: string[] | string,
-    finishingOptions: string[],
+    materialOptions?: string[],
+    finishingOptions?: string[],
     description: string,
     thumbnails: string[] | string,
     files: string

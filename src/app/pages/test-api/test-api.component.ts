@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ProductServiceService } from '../../service/product-service.service';
+import { ProductService } from '../../service/product-service.service';
 import { IAPIResponseModel, ICheckAPI, IMainProduct, IProductAPI, IProductAPI2 } from '../../../models/interfaces/testInterface';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TestAPIComponent implements OnInit {
 
-  testProductService = inject(ProductServiceService);
+  testProductService = inject(ProductService);
   testResponse$: ICheckAPI = {
     isOnline: false,
     port: 0
